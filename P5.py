@@ -28,4 +28,4 @@ if table_code in ['A', 'S', 'M', 'D']:
         print(item)
     print("---done")
 else:
-    print("Invalid table code. Please enter A, S, M, or D.")
+    print("Invalid table code. enter A, S, M, or D.")
