@@ -32,12 +32,12 @@ else:
 
 print("Table codes: A = add, S = subtract, M = multiply, D = divide")
 
-while True:
+print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+
+run_program = True
+
+while run_program:
     action = input("Select table code: ")
-    if action.upper() not in ['A', 'S', 'M', 'D']:
-        print("Invalid table code. Please select again.")
-        continue
-    
     num = float(input("Enter number for table: "))
     
     if action.upper() == 'A':
@@ -66,4 +66,4 @@ while True:
     
     run_again = input("---done\nDo you want to run again? (y/n): ")
     if run_again.lower() != 'y':
-        break
+        run_program = False
