@@ -52,9 +52,11 @@ while table:
       else:
         print("Cannot divide by zero.")
 
-  # Ask for next iteration
-  answer = input("Generate another table? (y/n): ").lower()
-  table = answer == "y"
+  # Print done
+  print("Done!")
+  
+  # No need to ask for next iteration
 
 print("Goodbye!")
+
 
