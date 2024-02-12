@@ -1,8 +1,8 @@
-print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+print("Table codes: A = add, S = subtract, M = multiple, D = divide")
 
-run_program = True
+table = True
 
-while run_program:
+while table:
     action = input("Select table code: ").upper()
     num = float(input("Enter number for table: "))
     
@@ -25,8 +25,3 @@ while run_program:
                 print(f"{num / i} = {num} / {i}")
             else:
                 print("Cannot divide by zero.")
-    
-    run_again = input("---done\nDo you want to run again? (y/n): ").lower()
-    if run_again != 'y':
-        run_program = False
-
