@@ -67,3 +67,38 @@ while run_program:
     run_again = input("---done\nDo you want to run again? (y/n): ")
     if run_again.lower() != 'y':
         run_program = False
+        
+        
+print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+
+while True:
+    action = input("Select table code: ")
+    num = float(input("Enter number for table: "))
+    
+    if action.upper() == 'A':
+        print("Add")
+        for i in range(1, 11):
+            result = num + i
+            print(f"{result} = {num} + {i}")
+    elif action.upper() == 'S':
+        print("Subtract")
+        for i in range(1, 11):
+            result = num - i
+            print(f"{result} = {num} - {i}")
+    elif action.upper() == 'M':
+        print("Multiply")
+        for i in range(1, 11):
+            result = num * i
+            print(f"{result} = {num} * {i}")
+    elif action.upper() == 'D':
+        print("Divide")
+        for i in range(1, 11):
+            if i != 0:
+                result = num / i
+                print(f"{result} = {num} / {i}")
+            else:
+                print("Cannot divide by zero.")
+    
+    run_again = input("---done\nDo you want to run again? (y/n): ")
+    if run_again.lower() != 'y':
+        break
