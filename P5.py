@@ -27,78 +27,49 @@ if table_code in ['A', 'S', 'M', 'D']:
     for item in generate_table(table_code, number):
         print(item)
     print("---done")
-else:
-    print("Invalid table code. enter A, S, M, or D.")
 
-print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+print("Welcome to the Table Generator!")
 
-print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+# Get table action and number
+action = input("Select table code (A = add, S = subtract, M = multiply, D = divide): ").upper()
+try:
+  number = float(input("Enter number for the table: "))
+except ValueError:
+  print("Invalid input. Please enter a number.")
+  exit()
 
-run_program = True
+# Initialize an empty list to store results
+results = []
 
-while run_program:
-    action = input("Select table code: ")
-    num = float(input("Enter number for table: "))
-    
-    if action.upper() == 'A':
-        print("Add")
-        for i in range(1, 11):
-            result = num + i
-            print(f"{result} = {num} + {i}")
-    elif action.upper() == 'S':
-        print("Subtract")
-        for i in range(1, 11):
-            result = num - i
-            print(f"{result} = {num} - {i}")
-    elif action.upper() == 'M':
-        print("Multiply")
-        for i in range(1, 11):
-            result = num * i
-            print(f"{result} = {num} * {i}")
-    elif action.upper() == 'D':
-        print("Divide")
-        for i in range(1, 11):
-            if i != 0:
-                result = num / i
-                print(f"{result} = {num} / {i}")
-            else:
-                print("Cannot divide by zero.")
-    
-    run_again = input("---done\nDo you want to run again? (y/n): ")
-    if run_again.lower() != 'y':
-        run_program = False
-        
-        
-print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+# Use a for loop to iterate from 1 to 10
+for i in range(1, 11):
+  # Use if statements to perform the operation based on action
+  if action == "A":
+    result = number + i
+  elif action == "S":
+    result = number - i
+  elif action == "M":
+    result = number * i
+  elif action == "D":
+    if number == 0:
+      print("Error: Cannot divide by zero.")
+      break  # Exit the loop if division by zero
+    else:
+      result = number / i
+  else:
+    print("Invalid action. Please choose A, S, M, or D.")
+    break  # Exit the loop if invalid action
 
-while True:
-    action = input("Select table code: ")
-    num = float(input("Enter number for table: "))
-    
-    if action.upper() == 'A':
-        print("Add")
-        for i in range(1, 11):
-            result = num + i
-            print(f"{result} = {num} + {i}")
-    elif action.upper() == 'S':
-        print("Subtract")
-        for i in range(1, 11):
-            result = num - i
-            print(f"{result} = {num} - {i}")
-    elif action.upper() == 'M':
-        print("Multiply")
-        for i in range(1, 11):
-            result = num * i
-            print(f"{result} = {num} * {i}")
-    elif action.upper() == 'D':
-        print("Divide")
-        for i in range(1, 11):
-            if i != 0:
-                result = num / i
-                print(f"{result} = {num} / {i}")
-            else:
-                print("Cannot divide by zero.")
-    
-    run_again = input("---done\nDo you want to run again? (y/n): ")
-    if run_again.lower() != 'y':
-        break
+  # Add the result to the list
+  results.append(result)
+
+# Print the table header
+print(f"\n{action} table for {number:.1f}\n")
+
+# Use a for loop to print each result with formatting
+for i, result in enumerate(results):
+  print(f"{result:.1f} = {number}{action}{i+1}")
+
+# Thank the user
+print("\nThank you for using the Table Generator!")
+
