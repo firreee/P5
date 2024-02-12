@@ -29,3 +29,41 @@ if table_code in ['A', 'S', 'M', 'D']:
     print("---done")
 else:
     print("Invalid table code. enter A, S, M, or D.")
+
+print("Table codes: A = add, S = subtract, M = multiply, D = divide")
+
+while True:
+    action = input("Select table code: ")
+    if action.upper() not in ['A', 'S', 'M', 'D']:
+        print("Invalid table code. Please select again.")
+        continue
+    
+    num = float(input("Enter number for table: "))
+    
+    if action.upper() == 'A':
+        print("Add")
+        for i in range(1, 11):
+            result = num + i
+            print(f"{result} = {num} + {i}")
+    elif action.upper() == 'S':
+        print("Subtract")
+        for i in range(1, 11):
+            result = num - i
+            print(f"{result} = {num} - {i}")
+    elif action.upper() == 'M':
+        print("Multiply")
+        for i in range(1, 11):
+            result = num * i
+            print(f"{result} = {num} * {i}")
+    elif action.upper() == 'D':
+        print("Divide")
+        for i in range(1, 11):
+            if i != 0:
+                result = num / i
+                print(f"{result} = {num} / {i}")
+            else:
+                print("Cannot divide by zero.")
+    
+    run_again = input("---done\nDo you want to run again? (y/n): ")
+    if run_again.lower() != 'y':
+        break
